@@ -15,6 +15,15 @@
 		EC7B36211C8DB2D200F196D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC7B36201C8DB2D200F196D0 /* Assets.xcassets */; };
 		EC7B36241C8DB2D200F196D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC7B36221C8DB2D200F196D0 /* LaunchScreen.storyboard */; };
 		EC7B362F1C8DB2D200F196D0 /* MyQcmTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7B362E1C8DB2D200F196D0 /* MyQcmTests.m */; };
+		EC7B36431C8DB7E200F196D0 /* Qcm.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7B36421C8DB7E200F196D0 /* Qcm.m */; };
+		EC7B364D1C8DBBA500F196D0 /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7B364C1C8DBBA500F196D0 /* Question.m */; };
+		EC7B36501C8DBC9700F196D0 /* CategoryQcm.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7B364F1C8DBC9700F196D0 /* CategoryQcm.m */; };
+		EC7B36531C8DBCCB00F196D0 /* Answer.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7B36521C8DBCCB00F196D0 /* Answer.m */; };
+		EC7B36561C8DBD8C00F196D0 /* Media.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7B36551C8DBD8C00F196D0 /* Media.m */; };
+		EC7B36591C8DBDFE00F196D0 /* TypeMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7B36581C8DBDFE00F196D0 /* TypeMedia.m */; };
+		EC7B365C1C8DBE7800F196D0 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7B365B1C8DBE7800F196D0 /* User.m */; };
+		EC7B365F1C8DBF2E00F196D0 /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7B365E1C8DBF2E00F196D0 /* Group.m */; };
+		EC7B36621C8DBF9500F196D0 /* QcmUser.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7B36611C8DBF9500F196D0 /* QcmUser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +51,24 @@
 		EC7B362A1C8DB2D200F196D0 /* MyQcmTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyQcmTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC7B362E1C8DB2D200F196D0 /* MyQcmTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyQcmTests.m; sourceTree = "<group>"; };
 		EC7B36301C8DB2D200F196D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EC7B36411C8DB7E200F196D0 /* Qcm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Qcm.h; path = Entity/Qcm.h; sourceTree = "<group>"; };
+		EC7B36421C8DB7E200F196D0 /* Qcm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Qcm.m; path = Entity/Qcm.m; sourceTree = "<group>"; };
+		EC7B364B1C8DBBA500F196D0 /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Question.h; sourceTree = "<group>"; };
+		EC7B364C1C8DBBA500F196D0 /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Question.m; sourceTree = "<group>"; };
+		EC7B364E1C8DBC9700F196D0 /* CategoryQcm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CategoryQcm.h; path = Entity/CategoryQcm.h; sourceTree = "<group>"; };
+		EC7B364F1C8DBC9700F196D0 /* CategoryQcm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CategoryQcm.m; path = Entity/CategoryQcm.m; sourceTree = "<group>"; };
+		EC7B36511C8DBCCB00F196D0 /* Answer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Answer.h; path = Entity/Answer.h; sourceTree = "<group>"; };
+		EC7B36521C8DBCCB00F196D0 /* Answer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Answer.m; path = Entity/Answer.m; sourceTree = "<group>"; };
+		EC7B36541C8DBD8C00F196D0 /* Media.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Media.h; path = Entity/Media.h; sourceTree = "<group>"; };
+		EC7B36551C8DBD8C00F196D0 /* Media.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Media.m; path = Entity/Media.m; sourceTree = "<group>"; };
+		EC7B36571C8DBDFE00F196D0 /* TypeMedia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TypeMedia.h; path = Entity/TypeMedia.h; sourceTree = "<group>"; };
+		EC7B36581C8DBDFE00F196D0 /* TypeMedia.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TypeMedia.m; path = Entity/TypeMedia.m; sourceTree = "<group>"; };
+		EC7B365A1C8DBE7800F196D0 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = Entity/User.h; sourceTree = "<group>"; };
+		EC7B365B1C8DBE7800F196D0 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = Entity/User.m; sourceTree = "<group>"; };
+		EC7B365D1C8DBF2E00F196D0 /* Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Group.h; path = Entity/Group.h; sourceTree = "<group>"; };
+		EC7B365E1C8DBF2E00F196D0 /* Group.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Group.m; path = Entity/Group.m; sourceTree = "<group>"; };
+		EC7B36601C8DBF9500F196D0 /* QcmUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QcmUser.h; path = Entity/QcmUser.h; sourceTree = "<group>"; };
+		EC7B36611C8DBF9500F196D0 /* QcmUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QcmUser.m; path = Entity/QcmUser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +110,9 @@
 		EC7B36101C8DB2D100F196D0 /* MyQcm */ = {
 			isa = PBXGroup;
 			children = (
+				EC7B363D1C8DB5E900F196D0 /* View */,
+				EC7B363C1C8DB5DE00F196D0 /* Entity */,
+				EC7B363B1C8DB5D200F196D0 /* Data */,
 				EC7B36141C8DB2D200F196D0 /* AppDelegate.h */,
 				EC7B36151C8DB2D200F196D0 /* AppDelegate.m */,
 				EC7B36171C8DB2D200F196D0 /* ViewController.h */,
@@ -112,6 +142,45 @@
 				EC7B36301C8DB2D200F196D0 /* Info.plist */,
 			);
 			path = MyQcmTests;
+			sourceTree = "<group>";
+		};
+		EC7B363B1C8DB5D200F196D0 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		EC7B363C1C8DB5DE00F196D0 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				EC7B36411C8DB7E200F196D0 /* Qcm.h */,
+				EC7B36421C8DB7E200F196D0 /* Qcm.m */,
+				EC7B364B1C8DBBA500F196D0 /* Question.h */,
+				EC7B364C1C8DBBA500F196D0 /* Question.m */,
+				EC7B364E1C8DBC9700F196D0 /* CategoryQcm.h */,
+				EC7B364F1C8DBC9700F196D0 /* CategoryQcm.m */,
+				EC7B36511C8DBCCB00F196D0 /* Answer.h */,
+				EC7B36521C8DBCCB00F196D0 /* Answer.m */,
+				EC7B36541C8DBD8C00F196D0 /* Media.h */,
+				EC7B36551C8DBD8C00F196D0 /* Media.m */,
+				EC7B36571C8DBDFE00F196D0 /* TypeMedia.h */,
+				EC7B36581C8DBDFE00F196D0 /* TypeMedia.m */,
+				EC7B365A1C8DBE7800F196D0 /* User.h */,
+				EC7B365B1C8DBE7800F196D0 /* User.m */,
+				EC7B365D1C8DBF2E00F196D0 /* Group.h */,
+				EC7B365E1C8DBF2E00F196D0 /* Group.m */,
+				EC7B36601C8DBF9500F196D0 /* QcmUser.h */,
+				EC7B36611C8DBF9500F196D0 /* QcmUser.m */,
+			);
+			name = Entity;
+			sourceTree = "<group>";
+		};
+		EC7B363D1C8DB5E900F196D0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,10 +283,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC7B36431C8DB7E200F196D0 /* Qcm.m in Sources */,
 				EC7B36191C8DB2D200F196D0 /* ViewController.m in Sources */,
 				EC7B361F1C8DB2D200F196D0 /* MyQcm.xcdatamodeld in Sources */,
+				EC7B365F1C8DBF2E00F196D0 /* Group.m in Sources */,
+				EC7B36531C8DBCCB00F196D0 /* Answer.m in Sources */,
+				EC7B36591C8DBDFE00F196D0 /* TypeMedia.m in Sources */,
+				EC7B364D1C8DBBA500F196D0 /* Question.m in Sources */,
+				EC7B365C1C8DBE7800F196D0 /* User.m in Sources */,
+				EC7B36621C8DBF9500F196D0 /* QcmUser.m in Sources */,
 				EC7B36161C8DB2D200F196D0 /* AppDelegate.m in Sources */,
+				EC7B36561C8DBD8C00F196D0 /* Media.m in Sources */,
 				EC7B36131C8DB2D200F196D0 /* main.m in Sources */,
+				EC7B36501C8DBC9700F196D0 /* CategoryQcm.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
