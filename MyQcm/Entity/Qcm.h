@@ -15,7 +15,7 @@
 @property (nonatomic) Boolean is_available;
 @property (nonatomic, strong) NSDate *beginning_at;
 @property (nonatomic, strong) NSDate *finished_at;
-@property (nonatomic, strong) NSDate *duration;
+@property (nonatomic) int duration;
 @property (nonatomic, strong) NSDate *created_at;
 @property (nonatomic, strong) NSDate *updated_at;
 @property (nonatomic, strong) CategoryQcm *category;

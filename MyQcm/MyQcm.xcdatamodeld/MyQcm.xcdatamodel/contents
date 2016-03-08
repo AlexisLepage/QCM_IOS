@@ -1,4 +1,83 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="Test1.xcdatamodel" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <elements/>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="15C50" minimumToolsVersion="Automatic">
+    <entity name="Answer" syncable="YES">
+        <attribute name="created_at" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="is_valid" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="updated_at" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="fk_Answer_Question" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Question" inverseName="fk_Question_Answer" inverseEntity="Question" syncable="YES"/>
+    </entity>
+    <entity name="Category" syncable="YES">
+        <attribute name="created_at" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="updated_at" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="fk_Category_Qcm" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Qcm" inverseName="fk_Qcm_Category" inverseEntity="Qcm" syncable="YES"/>
+    </entity>
+    <entity name="Group" syncable="YES">
+        <attribute name="created_at" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="updated_at" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="fk_Group_User" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User" inverseName="fk_User_Group" inverseEntity="User" syncable="YES"/>
+    </entity>
+    <entity name="Media" syncable="YES">
+        <attribute name="created_at" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="updated_at" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="fk_Media_Question" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Question" inverseName="fk_Question_Media" inverseEntity="Question" syncable="YES"/>
+        <relationship name="fk_Media_TypeMedia" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TypeMedia" inverseName="fk_TypeMedia_Media" inverseEntity="TypeMedia" syncable="YES"/>
+    </entity>
+    <entity name="Qcm" syncable="YES">
+        <attribute name="beginning_at" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="created_at" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="duration" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="finished_at" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="is_available" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="updated_at" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="fk_Qcm_Category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Category" inverseName="fk_Category_Qcm" inverseEntity="Category" syncable="YES"/>
+        <relationship name="fk_Qcm_QcmUser" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="QcmUser" inverseName="fk_QcmUser_Qcm" inverseEntity="QcmUser" syncable="YES"/>
+        <relationship name="fk_Qcm_Question" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Question" inverseName="fk_Question_Qcm" inverseEntity="Question" syncable="YES"/>
+    </entity>
+    <entity name="QcmUser" syncable="YES">
+        <attribute name="is_done" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="note" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="fk_QcmUser_Qcm" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Qcm" inverseName="fk_Qcm_QcmUser" inverseEntity="Qcm" syncable="YES"/>
+        <relationship name="fk_QcmUser_User" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="fk_User_QcmUser" inverseEntity="User" syncable="YES"/>
+    </entity>
+    <entity name="Question" syncable="YES">
+        <attribute name="created_at" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="updated_at" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="value" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="fk_Question_Answer" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Answer" inverseName="fk_Answer_Question" inverseEntity="Answer" syncable="YES"/>
+        <relationship name="fk_Question_Media" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Media" inverseName="fk_Media_Question" inverseEntity="Media" syncable="YES"/>
+        <relationship name="fk_Question_Qcm" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Qcm" inverseName="fk_Qcm_Question" inverseEntity="Qcm" syncable="YES"/>
+    </entity>
+    <entity name="TypeMedia" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="fk_TypeMedia_Media" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Media" inverseName="fk_Media_TypeMedia" inverseEntity="Media" syncable="YES"/>
+    </entity>
+    <entity name="User" syncable="YES">
+        <attribute name="created_at" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="firstname" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="token" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="updated_at" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="fk_User_Group" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Group" inverseName="fk_Group_User" inverseEntity="Group" syncable="YES"/>
+        <relationship name="fk_User_QcmUser" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="QcmUser" inverseName="fk_QcmUser_User" inverseEntity="QcmUser" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Answer" positionX="268" positionY="-423" width="128" height="120"/>
+        <element name="Category" positionX="72" positionY="0" width="128" height="105"/>
+        <element name="Group" positionX="-324" positionY="-36" width="128" height="105"/>
+        <element name="Media" positionX="277" positionY="-52" width="128" height="135"/>
+        <element name="Qcm" positionX="72" positionY="-234" width="128" height="195"/>
+        <element name="QcmUser" positionX="-128" positionY="-360" width="128" height="105"/>
+        <element name="Question" positionX="270" positionY="-234" width="128" height="150"/>
+        <element name="TypeMedia" positionX="277" positionY="129" width="128" height="75"/>
+        <element name="User" positionX="-324" positionY="-243" width="128" height="180"/>
+    </elements>
 </model>

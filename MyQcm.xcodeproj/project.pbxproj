@@ -16,7 +16,6 @@
 		EC7B36241C8DB2D200F196D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC7B36221C8DB2D200F196D0 /* LaunchScreen.storyboard */; };
 		EC7B362F1C8DB2D200F196D0 /* MyQcmTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7B362E1C8DB2D200F196D0 /* MyQcmTests.m */; };
 		EC7B36431C8DB7E200F196D0 /* Qcm.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7B36421C8DB7E200F196D0 /* Qcm.m */; };
-		EC7B364D1C8DBBA500F196D0 /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7B364C1C8DBBA500F196D0 /* Question.m */; };
 		EC7B36501C8DBC9700F196D0 /* CategoryQcm.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7B364F1C8DBC9700F196D0 /* CategoryQcm.m */; };
 		EC7B36531C8DBCCB00F196D0 /* Answer.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7B36521C8DBCCB00F196D0 /* Answer.m */; };
 		EC7B36561C8DBD8C00F196D0 /* Media.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7B36551C8DBD8C00F196D0 /* Media.m */; };
@@ -24,6 +23,16 @@
 		EC7B365C1C8DBE7800F196D0 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7B365B1C8DBE7800F196D0 /* User.m */; };
 		EC7B365F1C8DBF2E00F196D0 /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7B365E1C8DBF2E00F196D0 /* Group.m */; };
 		EC7B36621C8DBF9500F196D0 /* QcmUser.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7B36611C8DBF9500F196D0 /* QcmUser.m */; };
+		EC7B36681C8DC83500F196D0 /* QcmSQLiteAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7B36671C8DC83500F196D0 /* QcmSQLiteAdapter.m */; };
+		EC7B366B1C8DCC2C00F196D0 /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7B366A1C8DCC2C00F196D0 /* Question.m */; };
+		EC7B366E1C8DD3F100F196D0 /* CategorySQLiteAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7B366D1C8DD3F100F196D0 /* CategorySQLiteAdapter.m */; };
+		EC7B36741C8DD5D800F196D0 /* QuestionSQLiteAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7B36731C8DD5D800F196D0 /* QuestionSQLiteAdapter.m */; };
+		EC7B36771C8DD6D800F196D0 /* AnswerSQLiteAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7B36761C8DD6D800F196D0 /* AnswerSQLiteAdapter.m */; };
+		EC7B367A1C8DD99E00F196D0 /* MediaQSLiteAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7B36791C8DD99E00F196D0 /* MediaQSLiteAdapter.m */; };
+		EC7B367D1C8DDAA100F196D0 /* TypeMediaSQLiteAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7B367C1C8DDAA100F196D0 /* TypeMediaSQLiteAdapter.m */; };
+		EC7B36831C8DDB9F00F196D0 /* UserSQLiteAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7B36821C8DDB9F00F196D0 /* UserSQLiteAdapter.m */; };
+		EC7B36861C8DDC2300F196D0 /* GroupSQLiteAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7B36851C8DDC2300F196D0 /* GroupSQLiteAdapter.m */; };
+		EC7B36891C8DDD6E00F196D0 /* QcmUserSQLiteAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7B36881C8DDD6E00F196D0 /* QcmUserSQLiteAdapter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,8 +62,6 @@
 		EC7B36301C8DB2D200F196D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC7B36411C8DB7E200F196D0 /* Qcm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Qcm.h; path = Entity/Qcm.h; sourceTree = "<group>"; };
 		EC7B36421C8DB7E200F196D0 /* Qcm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Qcm.m; path = Entity/Qcm.m; sourceTree = "<group>"; };
-		EC7B364B1C8DBBA500F196D0 /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Question.h; sourceTree = "<group>"; };
-		EC7B364C1C8DBBA500F196D0 /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Question.m; sourceTree = "<group>"; };
 		EC7B364E1C8DBC9700F196D0 /* CategoryQcm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CategoryQcm.h; path = Entity/CategoryQcm.h; sourceTree = "<group>"; };
 		EC7B364F1C8DBC9700F196D0 /* CategoryQcm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CategoryQcm.m; path = Entity/CategoryQcm.m; sourceTree = "<group>"; };
 		EC7B36511C8DBCCB00F196D0 /* Answer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Answer.h; path = Entity/Answer.h; sourceTree = "<group>"; };
@@ -69,6 +76,26 @@
 		EC7B365E1C8DBF2E00F196D0 /* Group.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Group.m; path = Entity/Group.m; sourceTree = "<group>"; };
 		EC7B36601C8DBF9500F196D0 /* QcmUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QcmUser.h; path = Entity/QcmUser.h; sourceTree = "<group>"; };
 		EC7B36611C8DBF9500F196D0 /* QcmUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QcmUser.m; path = Entity/QcmUser.m; sourceTree = "<group>"; };
+		EC7B36661C8DC83500F196D0 /* QcmSQLiteAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QcmSQLiteAdapter.h; path = Data/QcmSQLiteAdapter.h; sourceTree = "<group>"; };
+		EC7B36671C8DC83500F196D0 /* QcmSQLiteAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QcmSQLiteAdapter.m; path = Data/QcmSQLiteAdapter.m; sourceTree = "<group>"; };
+		EC7B36691C8DCC2C00F196D0 /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Question.h; path = Entity/Question.h; sourceTree = "<group>"; };
+		EC7B366A1C8DCC2C00F196D0 /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Question.m; path = Entity/Question.m; sourceTree = "<group>"; };
+		EC7B366C1C8DD3F100F196D0 /* CategorySQLiteAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CategorySQLiteAdapter.h; path = Data/CategorySQLiteAdapter.h; sourceTree = "<group>"; };
+		EC7B366D1C8DD3F100F196D0 /* CategorySQLiteAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CategorySQLiteAdapter.m; path = Data/CategorySQLiteAdapter.m; sourceTree = "<group>"; };
+		EC7B36721C8DD5D800F196D0 /* QuestionSQLiteAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QuestionSQLiteAdapter.h; path = Data/QuestionSQLiteAdapter.h; sourceTree = "<group>"; };
+		EC7B36731C8DD5D800F196D0 /* QuestionSQLiteAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QuestionSQLiteAdapter.m; path = Data/QuestionSQLiteAdapter.m; sourceTree = "<group>"; };
+		EC7B36751C8DD6D800F196D0 /* AnswerSQLiteAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AnswerSQLiteAdapter.h; path = Data/AnswerSQLiteAdapter.h; sourceTree = "<group>"; };
+		EC7B36761C8DD6D800F196D0 /* AnswerSQLiteAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AnswerSQLiteAdapter.m; path = Data/AnswerSQLiteAdapter.m; sourceTree = "<group>"; };
+		EC7B36781C8DD99E00F196D0 /* MediaQSLiteAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MediaQSLiteAdapter.h; path = Data/MediaQSLiteAdapter.h; sourceTree = "<group>"; };
+		EC7B36791C8DD99E00F196D0 /* MediaQSLiteAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MediaQSLiteAdapter.m; path = Data/MediaQSLiteAdapter.m; sourceTree = "<group>"; };
+		EC7B367B1C8DDAA100F196D0 /* TypeMediaSQLiteAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TypeMediaSQLiteAdapter.h; path = Data/TypeMediaSQLiteAdapter.h; sourceTree = "<group>"; };
+		EC7B367C1C8DDAA100F196D0 /* TypeMediaSQLiteAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TypeMediaSQLiteAdapter.m; path = Data/TypeMediaSQLiteAdapter.m; sourceTree = "<group>"; };
+		EC7B36811C8DDB9F00F196D0 /* UserSQLiteAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserSQLiteAdapter.h; path = Data/UserSQLiteAdapter.h; sourceTree = "<group>"; };
+		EC7B36821C8DDB9F00F196D0 /* UserSQLiteAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserSQLiteAdapter.m; path = Data/UserSQLiteAdapter.m; sourceTree = "<group>"; };
+		EC7B36841C8DDC2300F196D0 /* GroupSQLiteAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GroupSQLiteAdapter.h; path = Data/GroupSQLiteAdapter.h; sourceTree = "<group>"; };
+		EC7B36851C8DDC2300F196D0 /* GroupSQLiteAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GroupSQLiteAdapter.m; path = Data/GroupSQLiteAdapter.m; sourceTree = "<group>"; };
+		EC7B36871C8DDD6E00F196D0 /* QcmUserSQLiteAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QcmUserSQLiteAdapter.h; path = Data/QcmUserSQLiteAdapter.h; sourceTree = "<group>"; };
+		EC7B36881C8DDD6E00F196D0 /* QcmUserSQLiteAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QcmUserSQLiteAdapter.m; path = Data/QcmUserSQLiteAdapter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +174,24 @@
 		EC7B363B1C8DB5D200F196D0 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				EC7B36661C8DC83500F196D0 /* QcmSQLiteAdapter.h */,
+				EC7B36671C8DC83500F196D0 /* QcmSQLiteAdapter.m */,
+				EC7B366C1C8DD3F100F196D0 /* CategorySQLiteAdapter.h */,
+				EC7B366D1C8DD3F100F196D0 /* CategorySQLiteAdapter.m */,
+				EC7B36721C8DD5D800F196D0 /* QuestionSQLiteAdapter.h */,
+				EC7B36731C8DD5D800F196D0 /* QuestionSQLiteAdapter.m */,
+				EC7B36751C8DD6D800F196D0 /* AnswerSQLiteAdapter.h */,
+				EC7B36761C8DD6D800F196D0 /* AnswerSQLiteAdapter.m */,
+				EC7B36781C8DD99E00F196D0 /* MediaQSLiteAdapter.h */,
+				EC7B36791C8DD99E00F196D0 /* MediaQSLiteAdapter.m */,
+				EC7B367B1C8DDAA100F196D0 /* TypeMediaSQLiteAdapter.h */,
+				EC7B367C1C8DDAA100F196D0 /* TypeMediaSQLiteAdapter.m */,
+				EC7B36811C8DDB9F00F196D0 /* UserSQLiteAdapter.h */,
+				EC7B36821C8DDB9F00F196D0 /* UserSQLiteAdapter.m */,
+				EC7B36841C8DDC2300F196D0 /* GroupSQLiteAdapter.h */,
+				EC7B36851C8DDC2300F196D0 /* GroupSQLiteAdapter.m */,
+				EC7B36871C8DDD6E00F196D0 /* QcmUserSQLiteAdapter.h */,
+				EC7B36881C8DDD6E00F196D0 /* QcmUserSQLiteAdapter.m */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -156,8 +201,6 @@
 			children = (
 				EC7B36411C8DB7E200F196D0 /* Qcm.h */,
 				EC7B36421C8DB7E200F196D0 /* Qcm.m */,
-				EC7B364B1C8DBBA500F196D0 /* Question.h */,
-				EC7B364C1C8DBBA500F196D0 /* Question.m */,
 				EC7B364E1C8DBC9700F196D0 /* CategoryQcm.h */,
 				EC7B364F1C8DBC9700F196D0 /* CategoryQcm.m */,
 				EC7B36511C8DBCCB00F196D0 /* Answer.h */,
@@ -172,6 +215,8 @@
 				EC7B365E1C8DBF2E00F196D0 /* Group.m */,
 				EC7B36601C8DBF9500F196D0 /* QcmUser.h */,
 				EC7B36611C8DBF9500F196D0 /* QcmUser.m */,
+				EC7B36691C8DCC2C00F196D0 /* Question.h */,
+				EC7B366A1C8DCC2C00F196D0 /* Question.m */,
 			);
 			name = Entity;
 			sourceTree = "<group>";
@@ -286,16 +331,25 @@
 				EC7B36431C8DB7E200F196D0 /* Qcm.m in Sources */,
 				EC7B36191C8DB2D200F196D0 /* ViewController.m in Sources */,
 				EC7B361F1C8DB2D200F196D0 /* MyQcm.xcdatamodeld in Sources */,
+				EC7B36771C8DD6D800F196D0 /* AnswerSQLiteAdapter.m in Sources */,
+				EC7B36891C8DDD6E00F196D0 /* QcmUserSQLiteAdapter.m in Sources */,
+				EC7B36831C8DDB9F00F196D0 /* UserSQLiteAdapter.m in Sources */,
+				EC7B36681C8DC83500F196D0 /* QcmSQLiteAdapter.m in Sources */,
+				EC7B367D1C8DDAA100F196D0 /* TypeMediaSQLiteAdapter.m in Sources */,
 				EC7B365F1C8DBF2E00F196D0 /* Group.m in Sources */,
 				EC7B36531C8DBCCB00F196D0 /* Answer.m in Sources */,
 				EC7B36591C8DBDFE00F196D0 /* TypeMedia.m in Sources */,
-				EC7B364D1C8DBBA500F196D0 /* Question.m in Sources */,
 				EC7B365C1C8DBE7800F196D0 /* User.m in Sources */,
 				EC7B36621C8DBF9500F196D0 /* QcmUser.m in Sources */,
 				EC7B36161C8DB2D200F196D0 /* AppDelegate.m in Sources */,
 				EC7B36561C8DBD8C00F196D0 /* Media.m in Sources */,
+				EC7B366E1C8DD3F100F196D0 /* CategorySQLiteAdapter.m in Sources */,
+				EC7B366B1C8DCC2C00F196D0 /* Question.m in Sources */,
+				EC7B367A1C8DD99E00F196D0 /* MediaQSLiteAdapter.m in Sources */,
+				EC7B36741C8DD5D800F196D0 /* QuestionSQLiteAdapter.m in Sources */,
 				EC7B36131C8DB2D200F196D0 /* main.m in Sources */,
 				EC7B36501C8DBC9700F196D0 /* CategoryQcm.m in Sources */,
+				EC7B36861C8DDC2300F196D0 /* GroupSQLiteAdapter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
