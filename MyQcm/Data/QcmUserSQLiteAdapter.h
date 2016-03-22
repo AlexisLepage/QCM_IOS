@@ -13,13 +13,14 @@
 @interface QcmUserSQLiteAdapter : NSObject
 
 + (NSString *) TABLE_QCMUSER;
++ (NSString *) COL_QCMUSER_IDSERVER;
 + (NSString *) COL_QCMUSER_NOTE;
 + (NSString *) COL_QCMUSER_IS_DONE;
 + (NSString *) COL_QCMUSER_QCM;
 + (NSString *) COL_QCMUSER_USER;
 
-- (void)insert:(QcmUser *)qcmUser;
+- (NSManagedObject*)insert:(QcmUser *)qcmUser;
 - (NSArray*)getAll;
-- (NSManagedObject *)getById:(NSManagedObject *) qcmUser;
+- (NSManagedObject *)getByIdServer:(int) idServer;
 
 @end

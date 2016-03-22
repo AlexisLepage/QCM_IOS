@@ -13,13 +13,13 @@
 @interface GroupSQLiteAdapter : NSObject
 
 + (NSString *) TABLE_GROUP;
-+ (NSString *) COL_USER_NAME;
-+ (NSString *) COL_USER_CREATED_AT;
-+ (NSString *) COL_USER_UPDATED_AT;
++ (NSString *) COL_GROUP_IDSERVER;
++ (NSString *) COL_GROUP_NAME;
++ (NSString *) COL_GROUP_CREATED_AT;
++ (NSString *) COL_GROUP_UPDATED_AT;
 
-- (void)insert:(Group *)group;
+- (NSManagedObject*)insert:(Group *)group;
 - (NSArray*)getAll;
-- (NSManagedObject *)getById:(NSManagedObject *) group;
-- (NSManagedObject *)getByName:(Group *) group;
+- (NSManagedObject *)getByIdServer:(int) idServer;
 
 @end

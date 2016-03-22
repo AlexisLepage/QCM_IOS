@@ -13,6 +13,7 @@
 @interface MediaQSLiteAdapter : NSObject
 
 + (NSString *) TABLE_MEDIA;
++ (NSString *) COL_MEDIA_IDSERVER;
 + (NSString *) COL_MEDIA_NAME;
 + (NSString *) COL_MEDIA_URL;
 + (NSString *) COL_MEDIA_CREATED_AT;
@@ -20,8 +21,8 @@
 + (NSString *) COL_MEDIA_QUESTION;
 + (NSString *) COL_MEDIA_TYPEMEDIA;
 
-- (void)insert:(Media *)media;
+- (NSManagedObject*)insert:(Media *)media;
 - (NSArray*)getAll;
-- (NSManagedObject *)getById:(NSManagedObject *) media;
+- (NSManagedObject *)getByIdServer:(int) idServer;
 
 @end

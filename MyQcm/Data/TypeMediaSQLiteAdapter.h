@@ -13,10 +13,11 @@
 @interface TypeMediaSQLiteAdapter : NSObject
 
 + (NSString *) TABLE_TYPEMEDIA;
++ (NSString *) COL_TYPEMEDIA_IDSERVER;
 + (NSString *) COL_TYPEMEDIA_NAME;
 
-- (void)insert:(TypeMedia *)typeMedia;
+- (NSManagedObject*)insert:(TypeMedia *)typeMedia;
 - (NSArray*)getAll;
-- (NSManagedObject *)getById:(NSManagedObject *) typeMedia;
+- (NSManagedObject *)getByIdServer:(int) idServer;
 
 @end

@@ -33,6 +33,7 @@
 		EC7B36831C8DDB9F00F196D0 /* UserSQLiteAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7B36821C8DDB9F00F196D0 /* UserSQLiteAdapter.m */; };
 		EC7B36861C8DDC2300F196D0 /* GroupSQLiteAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7B36851C8DDC2300F196D0 /* GroupSQLiteAdapter.m */; };
 		EC7B36891C8DDD6E00F196D0 /* QcmUserSQLiteAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7B36881C8DDD6E00F196D0 /* QcmUserSQLiteAdapter.m */; };
+		ECB7310B1C9052EA0052B441 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ECB7310D1C9052EA0052B441 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,10 @@
 		EC7B36851C8DDC2300F196D0 /* GroupSQLiteAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GroupSQLiteAdapter.m; path = Data/GroupSQLiteAdapter.m; sourceTree = "<group>"; };
 		EC7B36871C8DDD6E00F196D0 /* QcmUserSQLiteAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QcmUserSQLiteAdapter.h; path = Data/QcmUserSQLiteAdapter.h; sourceTree = "<group>"; };
 		EC7B36881C8DDD6E00F196D0 /* QcmUserSQLiteAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QcmUserSQLiteAdapter.m; path = Data/QcmUserSQLiteAdapter.m; sourceTree = "<group>"; };
+		ECB731091C90529D0052B441 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
+		ECB7310A1C90529D0052B441 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		ECB7310C1C9052EA0052B441 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		ECB7310E1C9053120052B441 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +142,7 @@
 		EC7B36101C8DB2D100F196D0 /* MyQcm */ = {
 			isa = PBXGroup;
 			children = (
+				ECB731081C9052580052B441 /* Ressource */,
 				EC7B363D1C8DB5E900F196D0 /* View */,
 				EC7B363C1C8DB5DE00F196D0 /* Entity */,
 				EC7B363B1C8DB5D200F196D0 /* Data */,
@@ -228,6 +234,14 @@
 			name = View;
 			sourceTree = "<group>";
 		};
+		ECB731081C9052580052B441 /* Ressource */ = {
+			isa = PBXGroup;
+			children = (
+				ECB7310D1C9052EA0052B441 /* Localizable.strings */,
+			);
+			name = Ressource;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -291,6 +305,7 @@
 			knownRegions = (
 				en,
 				Base,
+				fr,
 			);
 			mainGroup = EC7B36051C8DB2D100F196D0;
 			productRefGroup = EC7B360F1C8DB2D100F196D0 /* Products */;
@@ -309,6 +324,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC7B36241C8DB2D200F196D0 /* LaunchScreen.storyboard in Resources */,
+				ECB7310B1C9052EA0052B441 /* Localizable.strings in Resources */,
 				EC7B36211C8DB2D200F196D0 /* Assets.xcassets in Resources */,
 				EC7B361C1C8DB2D200F196D0 /* Main.storyboard in Resources */,
 			);
@@ -376,6 +392,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				EC7B361B1C8DB2D200F196D0 /* Base */,
+				ECB731091C90529D0052B441 /* fr */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -384,8 +401,19 @@
 			isa = PBXVariantGroup;
 			children = (
 				EC7B36231C8DB2D200F196D0 /* Base */,
+				ECB7310A1C90529D0052B441 /* fr */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		ECB7310D1C9052EA0052B441 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ECB7310C1C9052EA0052B441 /* en */,
+				ECB7310E1C9053120052B441 /* fr */,
+			);
+			name = Localizable.strings;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -536,6 +564,7 @@
 				EC7B36351C8DB2D200F196D0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EC7B36361C8DB2D200F196D0 /* Build configuration list for PBXNativeTarget "MyQcmTests" */ = {
 			isa = XCConfigurationList;
@@ -544,6 +573,7 @@
 				EC7B36381C8DB2D200F196D0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

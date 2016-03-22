@@ -13,12 +13,13 @@
 @interface CategorySQLiteAdapter : NSObject
 
 + (NSString *) TABLE_CATEGORY;
++ (NSString *) COL_CATEGORY_IDSERVER;
 + (NSString *) COL_CATEGORY_NAME;
 + (NSString *) COL_CATEGORY_CREATED_AT;
 + (NSString *) COL_CATEGORY_UPDATED_AT;
 
-- (void)insert:(CategoryQcm *)category;
+- (NSManagedObject*)insert:(CategoryQcm *)category;
 - (NSArray*)getAll;
-- (NSManagedObject *)getById:(NSManagedObject *) category;
+- (NSManagedObject *)getByIdServer:(int) idServer;
 
 @end

@@ -9,6 +9,6 @@
 #import "CategoryQcm.h"
 
 @implementation CategoryQcm
-@synthesize name,created_at,updated_at;
+@synthesize idServer,name,created_at,updated_at,qcms;
 
 @end

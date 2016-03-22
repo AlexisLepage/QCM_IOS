@@ -9,6 +9,6 @@
 #import "Answer.h"
 
 @implementation Answer
-@synthesize title,is_valid,created_at,updated_at;
+@synthesize idServer,title,is_valid,created_at,updated_at,question;
 
 @end

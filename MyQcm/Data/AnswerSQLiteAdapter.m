@@ -9,12 +9,14 @@
 #import "AnswerSQLiteAdapter.h"
 #import "Answer.h"
 #import "AppDelegate.h"
+#import "QuestionSQLiteAdapter.h"
 
 @implementation AnswerSQLiteAdapter
 static AppDelegate *appDelegate;
 static NSManagedObjectContext *context;
 
 +(NSString *)TABLE_ANSWER{ return @"Answer"; }
++(NSString *)COL_ANSWER_IDSERVER{ return @"id_server"; }
 +(NSString *)COL_ANSWER_TITLE{ return @"title"; }
 +(NSString *)COL_ANSWER_IS_VALID{ return @"is_valid"; }
 +(NSString *)COL_ANSWER_CREATED_AT{ return @"created_at"; }
@@ -33,9 +35,33 @@ static NSManagedObjectContext *context;
     
 }
 
-- (void)insert:(Answer *) answer{
+- (NSManagedObject*)insert:(Answer *) answer{
     
     NSManagedObject *managedObject = [NSEntityDescription insertNewObjectForEntityForName:AnswerSQLiteAdapter.TABLE_ANSWER inManagedObjectContext:context];
+    
+    [managedObject setValue:[NSNumber numberWithInt:(answer.idServer)] forKey:AnswerSQLiteAdapter.COL_ANSWER_IDSERVER];
+    [managedObject setValue:answer.title forKey:AnswerSQLiteAdapter.COL_ANSWER_TITLE];
+    [managedObject setValue:[NSNumber numberWithBool:answer.is_valid] forKey:AnswerSQLiteAdapter.COL_ANSWER_IS_VALID];
+    [managedObject setValue:answer.created_at forKey:AnswerSQLiteAdapter.COL_ANSWER_CREATED_AT];
+    [managedObject setValue:answer.updated_at forKey:AnswerSQLiteAdapter.COL_ANSWER_UPDATED_AT];
+    
+    if (answer.question != nil) {
+        
+        QuestionSQLiteAdapter* adapter = [QuestionSQLiteAdapter new];
+        NSManagedObject* questionManagedObject = [adapter getByIdServer:answer.question.idServer];
+        
+        if (questionManagedObject == nil) {
+            questionManagedObject =[adapter insert:answer.question];
+        }
+        [managedObject setValue:questionManagedObject forKey:AnswerSQLiteAdapter.COL_ANSWER_QUESTION];
+    }
+
+    
+    [appDelegate saveContext];
+    return managedObject;
+}
+
+- (void)update:(NSManagedObject *) managedObject withAnswer:(Answer *)answer{
     
     [managedObject setValue:answer.title forKey:AnswerSQLiteAdapter.COL_ANSWER_TITLE];
     [managedObject setValue:[NSNumber numberWithBool:answer.is_valid] forKey:AnswerSQLiteAdapter.COL_ANSWER_IS_VALID];
@@ -44,6 +70,7 @@ static NSManagedObjectContext *context;
     [managedObject setValue:answer.question forKey:AnswerSQLiteAdapter.COL_ANSWER_QUESTION];
     
     [appDelegate saveContext];
+    
 }
 
 - (NSArray*)getAll{
@@ -59,25 +86,23 @@ static NSManagedObjectContext *context;
     return answers;
     
 }
-- (NSManagedObject *)getById:(NSManagedObject *) answer{
+
+- (NSManagedObject*)getByIdServer:(int) idServer{
     
-    NSManagedObject *managedObject = [context objectWithID:answer.objectID];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"id_server = %d", idServer];
+    
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:AnswerSQLiteAdapter.TABLE_ANSWER];
+    
+    request.predicate = predicate;
+    
+    NSArray* result = [context executeFetchRequest:request error:nil];
+    NSManagedObject *managedObject = nil;
+    
+    if (result.count > 0) {
+        managedObject = [result objectAtIndex:0];
+    }
     
     return managedObject;
-}
-
-- (void)update:(NSManagedObject *) managedObject withAnswer:(Answer *)answer{
-    
-    //UPDATE IN TABLE
-    [managedObject setValue:answer.title forKey:AnswerSQLiteAdapter.COL_ANSWER_TITLE];
-    [managedObject setValue:[NSNumber numberWithBool:answer.is_valid] forKey:AnswerSQLiteAdapter.COL_ANSWER_IS_VALID];
-    [managedObject setValue:answer.created_at forKey:AnswerSQLiteAdapter.COL_ANSWER_CREATED_AT];
-    [managedObject setValue:answer.updated_at forKey:AnswerSQLiteAdapter.COL_ANSWER_UPDATED_AT];
-    [managedObject setValue:answer.question forKey:AnswerSQLiteAdapter.COL_ANSWER_QUESTION];
-    
-    //SAVE IN DB
-    [appDelegate saveContext];
-    
 }
 
 @end

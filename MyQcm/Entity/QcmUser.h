@@ -12,6 +12,7 @@
 
 @interface QcmUser : NSObject
 
+@property (nonatomic) int idServer;
 @property (nonatomic, strong) User *user;
 @property (nonatomic, strong) Qcm *qcm;
 @property (nonatomic) float note;

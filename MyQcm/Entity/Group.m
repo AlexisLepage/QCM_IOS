@@ -9,6 +9,6 @@
 #import "Group.h"
 
 @implementation Group
-@synthesize name,created_at,updated_at;
+@synthesize idServer,name,created_at,updated_at,users;
 
 @end

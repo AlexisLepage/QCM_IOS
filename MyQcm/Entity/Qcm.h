@@ -11,6 +11,7 @@
 
 @interface Qcm : NSObject
 
+@property (nonatomic) int idServer;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic) Boolean is_available;
 @property (nonatomic, strong) NSDate *beginning_at;
@@ -19,5 +20,7 @@
 @property (nonatomic, strong) NSDate *created_at;
 @property (nonatomic, strong) NSDate *updated_at;
 @property (nonatomic, strong) CategoryQcm *category;
+@property (nonatomic, strong) NSArray *questions;
+@property (nonatomic, strong) NSArray *qcmUsers;
 
 @end

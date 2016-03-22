@@ -9,6 +9,6 @@
 #import "Media.h"
 
 @implementation Media
-@synthesize name,url,created_at,updated_at,question,type_media;
+@synthesize idServer,name,url,created_at,updated_at,question,type_media;
 
 @end

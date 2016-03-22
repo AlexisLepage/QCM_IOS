@@ -9,6 +9,6 @@
 #import "TypeMedia.h"
 
 @implementation TypeMedia
-@synthesize name;
+@synthesize idServer,name,medias;
 
 @end

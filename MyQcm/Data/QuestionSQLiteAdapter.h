@@ -13,14 +13,15 @@
 @interface QuestionSQLiteAdapter : NSObject
 
 + (NSString *) TABLE_QUESTION;
-+ (NSString *) COL_CATEGORY_TITLE;
-+ (NSString *) COL_CATEGORY_VALUE;
-+ (NSString *) COL_CATEGORY_CREATED_AT;
-+ (NSString *) COL_CATEGORY_UPDATED_AT;
-+ (NSString *) COL_CATEGORY_QCM;
++ (NSString *) COL_QUESTION_IDSERVER;
++ (NSString *) COL_QUESTION_TITLE;
++ (NSString *) COL_QUESTION_VALUE;
++ (NSString *) COL_QUESTION_CREATED_AT;
++ (NSString *) COL_QUESTION_UPDATED_AT;
++ (NSString *) COL_QUESTION_QCM;
 
-- (void)insert:(Question *)question;
+- (NSManagedObject*)insert:(Question *)question;
 - (NSArray*)getAll;
-- (NSManagedObject *)getById:(NSManagedObject *) question;
+- (NSManagedObject *)getByIdServer:(int) idServer;
 
 @end

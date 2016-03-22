@@ -13,15 +13,16 @@
 @interface AnswerSQLiteAdapter : NSObject
 
 + (NSString *) TABLE_ANSWER;
++ (NSString *) COL_ANSWER_IDSERVER;
 + (NSString *) COL_ANSWER_TITLE;
 + (NSString *) COL_ANSWER_IS_VALID;
 + (NSString *) COL_ANSWER_CREATED_AT;
 + (NSString *) COL_ANSWER_UPDATED_AT;
 + (NSString *) COL_ANSWER_QUESTION;
 
-- (void)insert:(Answer *)answer;
-- (NSArray*)getAll;
-- (NSManagedObject *)getById:(NSManagedObject *) answer;
+- (NSManagedObject*)insert:(Answer *)answer;
 - (void)update:(NSManagedObject *) managedObject withAnswer:(Answer *) answer;
+- (NSArray*)getAll;
+- (NSManagedObject *)getByIdServer:(int) idServer;
 
 @end

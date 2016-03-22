@@ -13,6 +13,7 @@
 @interface QcmSQLiteAdapter : NSObject
 
 + (NSString *) TABLE_QCM;
++ (NSString *) COL_QCM_IDSERVER;
 + (NSString *) COL_QCM_NAME;
 + (NSString *) COL_QCM_IS_AVAILABLE;
 + (NSString *) COL_QCM_BEGINNING_AT;
@@ -22,8 +23,8 @@
 + (NSString *) COL_QCM_UPDATED_AT;
 + (NSString *) COL_QCM_CATEGORY;
 
-- (void)insert:(Qcm *)qcm;
+- (NSManagedObject*)insert:(Qcm *)qcm;
 - (NSArray*)getAll;
-- (NSManagedObject *)getById:(NSManagedObject *) qcm;
+- (NSManagedObject*)getByIdServer:(int) idServer;
 
 @end

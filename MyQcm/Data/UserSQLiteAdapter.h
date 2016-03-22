@@ -13,6 +13,7 @@
 @interface UserSQLiteAdapter : NSObject
 
 + (NSString *) TABLE_USER;
++ (NSString *) COL_USER_IDSERVER;
 + (NSString *) COL_USER_NAME;
 + (NSString *) COL_USER_FIRSTNAME;
 + (NSString *) COL_USER_EMAIL;
@@ -22,8 +23,8 @@
 + (NSString *) COL_USER_UPDATED_AT;
 + (NSString *) COL_USER_GROUP;
 
-- (void)insert:(User *)user;
+- (NSManagedObject*)insert:(User *)user;
 - (NSArray*)getAll;
-- (NSManagedObject *)getById:(NSManagedObject *) user;
+- (NSManagedObject *)getByIdServer:(int) idServer;
 
 @end

@@ -9,12 +9,14 @@
 #import "UserSQLiteAdapter.h"
 #import "User.h"
 #import "AppDelegate.h"
+#import "GroupSQLiteAdapter.h"
 
 @implementation UserSQLiteAdapter
 static AppDelegate *appDelegate;
 static NSManagedObjectContext *context;
 
 +(NSString *)TABLE_USER{ return @"User"; }
++(NSString *)COL_USER_IDSERVER{ return @"id_server"; }
 +(NSString *)COL_USER_NAME{ return @"name"; }
 +(NSString *)COL_USER_FIRSTNAME{ return @"firstname"; }
 +(NSString *)COL_USER_EMAIL{ return @"email"; }
@@ -36,10 +38,11 @@ static NSManagedObjectContext *context;
     
 }
 
-- (void)insert:(User *) user{
+- (NSManagedObject*)insert:(User *) user{
     
     NSManagedObject *managedObject = [NSEntityDescription insertNewObjectForEntityForName:UserSQLiteAdapter.TABLE_USER inManagedObjectContext:context];
     
+    [managedObject setValue:[NSNumber numberWithInt:(user.idServer)] forKey:UserSQLiteAdapter.COL_USER_IDSERVER];
     [managedObject setValue:user.name forKey:UserSQLiteAdapter.COL_USER_NAME];
     [managedObject setValue:user.firstname forKey:UserSQLiteAdapter.COL_USER_FIRSTNAME];
     [managedObject setValue:user.email forKey:UserSQLiteAdapter.COL_USER_EMAIL];
@@ -47,9 +50,21 @@ static NSManagedObjectContext *context;
     [managedObject setValue:user.token forKey:UserSQLiteAdapter.COL_USER_TOKEN];
     [managedObject setValue:user.created_at forKey:UserSQLiteAdapter.COL_USER_CREATED_AT];
     [managedObject setValue:user.updated_at forKey:UserSQLiteAdapter.COL_USER_UPDATED_AT];
-    [managedObject setValue:user.group forKey:UserSQLiteAdapter.COL_USER_GROUP];
     
+    if (user.group != nil) {
+        
+        GroupSQLiteAdapter* adapter = [GroupSQLiteAdapter new];
+        NSManagedObject* groupManagedObject = [adapter getByIdServer:user.group.idServer];
+        
+        if (groupManagedObject == nil) {
+            groupManagedObject =[adapter insert:user.group];
+        }
+        [managedObject setValue:groupManagedObject forKey:UserSQLiteAdapter.COL_USER_GROUP];
+    }
+
     [appDelegate saveContext];
+    
+    return managedObject;
 }
 
 - (NSArray*)getAll{
@@ -65,10 +80,23 @@ static NSManagedObjectContext *context;
     return users;
     
 }
-- (NSManagedObject *)getById:(NSManagedObject *) user{
+
+- (NSManagedObject*)getByIdServer:(int) idServer{
     
-    NSManagedObject *managedObject = [context objectWithID:user.objectID];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"id_server = %d", idServer];
+    
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:UserSQLiteAdapter.TABLE_USER];
+    
+    request.predicate = predicate;
+    
+    NSArray* result = [context executeFetchRequest:request error:nil];
+    NSManagedObject *managedObject = nil;
+    
+    if (result.count > 0) {
+        managedObject = [result objectAtIndex:0];
+    }
     
     return managedObject;
 }
+
 @end

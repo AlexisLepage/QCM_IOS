@@ -11,6 +11,7 @@
 
 @interface User : NSObject
 
+@property (nonatomic) int idServer;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *firstname;
 @property (nonatomic, strong) NSString *email;
@@ -19,5 +20,6 @@
 @property (nonatomic, strong) NSDate *created_at;
 @property (nonatomic, strong) NSDate *updated_at;
 @property (nonatomic, strong) Group *group;
+@property (nonatomic, strong) NSArray *qcmUsers;
 
 @end

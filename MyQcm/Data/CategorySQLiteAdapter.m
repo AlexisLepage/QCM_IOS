@@ -15,6 +15,7 @@ static AppDelegate *appDelegate;
 static NSManagedObjectContext *context;
 
 +(NSString *)TABLE_CATEGORY{ return @"Category"; }
++(NSString *)COL_CATEGORY_IDSERVER{ return @"id_server"; }
 +(NSString *)COL_CATEGORY_NAME{ return @"name"; }
 +(NSString *)COL_CATEGORY_CREATED_AT{ return @"created_at"; }
 +(NSString *)COL_CATEGORY_UPDATED_AT{ return @"updated_at"; }
@@ -31,15 +32,17 @@ static NSManagedObjectContext *context;
     
 }
 
-- (void)insert:(CategoryQcm *) category{
+- (NSManagedObject *)insert:(CategoryQcm *) category{
     
     NSManagedObject *managedObject = [NSEntityDescription insertNewObjectForEntityForName:CategorySQLiteAdapter.TABLE_CATEGORY inManagedObjectContext:context];
-    
+    [managedObject setValue:[NSNumber numberWithInt:(category.idServer)] forKey:CategorySQLiteAdapter.COL_CATEGORY_IDSERVER];
     [managedObject setValue:category.name forKey:CategorySQLiteAdapter.COL_CATEGORY_NAME];
     [managedObject setValue:category.created_at forKey:CategorySQLiteAdapter.COL_CATEGORY_CREATED_AT];
     [managedObject setValue:category.updated_at forKey:CategorySQLiteAdapter.COL_CATEGORY_UPDATED_AT];
     
     [appDelegate saveContext];
+    
+    return managedObject;
 }
 
 
@@ -56,11 +59,24 @@ static NSManagedObjectContext *context;
     return categories;
     
 }
-- (NSManagedObject *)getById:(NSManagedObject *) category{
+
+- (NSManagedObject*)getByIdServer:(int) idServer{
     
-    NSManagedObject *managedObject = [context objectWithID:category.objectID];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"id_server = %d", idServer];
+    
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:CategorySQLiteAdapter.TABLE_CATEGORY];
+    
+    request.predicate = predicate;
+    
+    NSArray* result = [context executeFetchRequest:request error:nil];
+    NSManagedObject *managedObject = nil;
+    
+    if (result.count > 0) {
+        managedObject = [result objectAtIndex:0];
+    }
     
     return managedObject;
 }
+
 
 @end

@@ -9,12 +9,15 @@
 #import "MediaQSLiteAdapter.h"
 #import "Media.h"
 #import "AppDelegate.h"
+#import "QuestionSQLiteAdapter.h"
+#import "TypeMediaSQLiteAdapter.h"
 
 @implementation MediaQSLiteAdapter
 static AppDelegate *appDelegate;
 static NSManagedObjectContext *context;
 
 +(NSString *)TABLE_MEDIA{ return @"Media"; }
++(NSString *)COL_MEDIA_IDSERVER{ return @"id_server"; }
 +(NSString *)COL_MEDIA_NAME{ return @"name"; }
 +(NSString *)COL_MEDIA_URL{ return @"url"; }
 +(NSString *)COL_MEDIA_CREATED_AT{ return @"created_at"; }
@@ -34,18 +37,42 @@ static NSManagedObjectContext *context;
     
 }
 
-- (void)insert:(Media *) media{
+- (NSManagedObject*)insert:(Media *) media{
     
     NSManagedObject *managedObject = [NSEntityDescription insertNewObjectForEntityForName:MediaQSLiteAdapter.TABLE_MEDIA inManagedObjectContext:context];
     
+    [managedObject setValue:[NSNumber numberWithInt:(media.idServer)] forKey:MediaQSLiteAdapter.COL_MEDIA_IDSERVER];
     [managedObject setValue:media.name forKey:MediaQSLiteAdapter.COL_MEDIA_NAME];
     [managedObject setValue:media.url forKey:MediaQSLiteAdapter.COL_MEDIA_URL];
     [managedObject setValue:media.created_at forKey:MediaQSLiteAdapter.COL_MEDIA_CREATED_AT];
     [managedObject setValue:media.updated_at forKey:MediaQSLiteAdapter.COL_MEDIA_UPDATED_AT];
-    [managedObject setValue:media.question forKey:MediaQSLiteAdapter.COL_MEDIA_QUESTION];
-    [managedObject setValue:media.type_media forKey:MediaQSLiteAdapter.COL_MEDIA_TYPEMEDIA];
+    
+    if (media.question != nil) {
+        
+        QuestionSQLiteAdapter* adapter = [QuestionSQLiteAdapter new];
+        NSManagedObject* questionManagedObject = [adapter getByIdServer:media.question.idServer];
+        
+        if (questionManagedObject == nil) {
+            questionManagedObject =[adapter insert:media.question];
+        }
+        [managedObject setValue:questionManagedObject forKey:MediaQSLiteAdapter.COL_MEDIA_QUESTION];
+    }
+    
+    if (media.type_media != nil) {
+        
+        TypeMediaSQLiteAdapter* adapter = [TypeMediaSQLiteAdapter new];
+        NSManagedObject* typeMediaManagedObject = [adapter getByIdServer:media.type_media.idServer];
+        
+        if (typeMediaManagedObject == nil) {
+            typeMediaManagedObject =[adapter insert:media.type_media];
+        }
+        [managedObject setValue:typeMediaManagedObject forKey:MediaQSLiteAdapter.COL_MEDIA_TYPEMEDIA];
+    }
+
     
     [appDelegate saveContext];
+    
+    return managedObject;
 }
 
 - (NSArray*)getAll{
@@ -61,9 +88,21 @@ static NSManagedObjectContext *context;
     return medias;
     
 }
-- (NSManagedObject *)getById:(NSManagedObject *) media{
+
+- (NSManagedObject*)getByIdServer:(int) idServer{
     
-    NSManagedObject *managedObject = [context objectWithID:media.objectID];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"id_server = %d", idServer];
+    
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:MediaQSLiteAdapter.TABLE_MEDIA];
+    
+    request.predicate = predicate;
+    
+    NSArray* result = [context executeFetchRequest:request error:nil];
+    NSManagedObject *managedObject = nil;
+    
+    if (result.count > 0) {
+        managedObject = [result objectAtIndex:0];
+    }
     
     return managedObject;
 }

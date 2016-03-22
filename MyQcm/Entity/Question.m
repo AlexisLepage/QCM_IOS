@@ -9,6 +9,6 @@
 #import "Question.h"
 
 @implementation Question
-@synthesize title,value,created_at,updated_at,qcm;
+@synthesize idServer,title,value,created_at,updated_at,answers,qcm,media;
 
 @end

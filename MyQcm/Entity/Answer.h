@@ -11,6 +11,7 @@
 
 @interface Answer : NSObject
 
+@property (nonatomic) int idServer;
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic) Boolean is_valid;
 @property (nonatomic, strong) NSDate *created_at;

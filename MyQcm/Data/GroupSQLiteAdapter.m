@@ -15,9 +15,10 @@ static AppDelegate *appDelegate;
 static NSManagedObjectContext *context;
 
 +(NSString *)TABLE_GROUP{ return @"Group"; }
-+(NSString *)COL_USER_NAME{ return @"name"; }
-+(NSString *)COL_USER_CREATED_AT{ return @"created_at"; }
-+(NSString *)COL_USER_UPDATED_AT{ return @"updated_at"; }
++(NSString *)COL_GROUP_IDSERVER{ return @"id_server"; }
++(NSString *)COL_GROUP_NAME{ return @"name"; }
++(NSString *)COL_GROUP_CREATED_AT{ return @"created_at"; }
++(NSString *)COL_GROUP_UPDATED_AT{ return @"updated_at"; }
 
 -(id) init {
     
@@ -31,15 +32,18 @@ static NSManagedObjectContext *context;
     
 }
 
-- (void)insert:(Group *) group{
+- (NSManagedObject*)insert:(Group *) group{
     
     NSManagedObject *managedObject = [NSEntityDescription insertNewObjectForEntityForName:GroupSQLiteAdapter.TABLE_GROUP inManagedObjectContext:context];
     
-    [managedObject setValue:group.name forKey:GroupSQLiteAdapter.COL_USER_NAME];
-    [managedObject setValue:group.created_at forKey:GroupSQLiteAdapter.COL_USER_CREATED_AT];
-    [managedObject setValue:group.updated_at forKey:GroupSQLiteAdapter.COL_USER_UPDATED_AT];
+    [managedObject setValue:[NSNumber numberWithInt:(group.idServer)] forKey:GroupSQLiteAdapter.COL_GROUP_IDSERVER];
+    [managedObject setValue:group.name forKey:GroupSQLiteAdapter.COL_GROUP_NAME];
+    [managedObject setValue:group.created_at forKey:GroupSQLiteAdapter.COL_GROUP_CREATED_AT];
+    [managedObject setValue:group.updated_at forKey:GroupSQLiteAdapter.COL_GROUP_UPDATED_AT];
     
     [appDelegate saveContext];
+    
+    return managedObject;
 }
 
 - (NSArray*)getAll{
@@ -55,29 +59,23 @@ static NSManagedObjectContext *context;
     return groups;
     
 }
-- (NSManagedObject *)getById:(NSManagedObject *) group{
-    
-    NSManagedObject *managedObject = [context objectWithID:group.objectID];
-    
-    return managedObject;
-}
 
-- (NSManagedObject*)getByName:(Group *) group{
+- (NSManagedObject*)getByIdServer: (int) idServer{
     
-    //create a filter
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name LIKE %@", group.name];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"id_server = %d", idServer];
     
-    //create a query
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:GroupSQLiteAdapter.TABLE_GROUP];
     
-    //set the filter on the query
     request.predicate = predicate;
     
-    //execute the query
-    NSManagedObject *managedObject = [[context executeFetchRequest:request error:nil]objectAtIndex:0];
+    NSArray* result = [context executeFetchRequest:request error:nil];
+    NSManagedObject *managedObject = nil;
+    
+    if (result.count > 0) {
+        managedObject = [result objectAtIndex:0];
+    }
     
     return managedObject;
-    
 }
 
 @end

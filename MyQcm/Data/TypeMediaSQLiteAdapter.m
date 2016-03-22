@@ -15,6 +15,7 @@ static AppDelegate *appDelegate;
 static NSManagedObjectContext *context;
 
 +(NSString *)TABLE_TYPEMEDIA{ return @"TypeMedia"; }
++(NSString *)COL_TYPEMEDIA_IDSERVER{ return @"id_server"; }
 +(NSString *)COL_TYPEMEDIA_NAME{ return @"name"; }
 
 -(id) init {
@@ -29,13 +30,16 @@ static NSManagedObjectContext *context;
     
 }
 
-- (void)insert:(TypeMedia *) typeMedia{
+- (NSManagedObject*)insert:(TypeMedia *) typeMedia{
     
     NSManagedObject *managedObject = [NSEntityDescription insertNewObjectForEntityForName:TypeMediaSQLiteAdapter.TABLE_TYPEMEDIA inManagedObjectContext:context];
     
+    [managedObject setValue:[NSNumber numberWithInt:(typeMedia.idServer)] forKey:TypeMediaSQLiteAdapter.COL_TYPEMEDIA_IDSERVER];
     [managedObject setValue:typeMedia.name forKey:TypeMediaSQLiteAdapter.COL_TYPEMEDIA_NAME];
     
     [appDelegate saveContext];
+    
+    return managedObject;
 }
 
 - (NSArray*)getAll{
@@ -51,10 +55,23 @@ static NSManagedObjectContext *context;
     return typeMedias;
     
 }
-- (NSManagedObject *)getById:(NSManagedObject *) typeMedia{
+
+- (NSManagedObject*)getByIdServer:(int) idServer{
     
-    NSManagedObject *managedObject = [context objectWithID:typeMedia.objectID];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"id_server = %d", idServer];
+    
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:TypeMediaSQLiteAdapter.TABLE_TYPEMEDIA];
+    
+    request.predicate = predicate;
+    
+    NSArray* result = [context executeFetchRequest:request error:nil];
+    NSManagedObject *managedObject = nil;
+    
+    if (result.count > 0) {
+        managedObject = [result objectAtIndex:0];
+    }
     
     return managedObject;
 }
+
 @end

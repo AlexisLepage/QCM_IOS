@@ -10,6 +10,8 @@
 
 @interface TypeMedia : NSObject
 
+@property (nonatomic) int idServer;
 @property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSArray *medias;
 
 @end

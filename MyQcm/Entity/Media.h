@@ -7,16 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Question.h"
 #import "TypeMedia.h"
+@class Question;
 
 @interface Media : NSObject
 
+@property (nonatomic) int idServer;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *url;
 @property (nonatomic, strong) NSDate *created_at;
 @property (nonatomic, strong) NSDate *updated_at;
-@property (nonatomic, strong) Question *question;
 @property (nonatomic, strong) TypeMedia *type_media;
+@property (nonatomic, strong) Question *question;
 
 @end
